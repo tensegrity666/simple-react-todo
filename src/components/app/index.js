@@ -1,17 +1,30 @@
 import React from 'react';
 
-import style from './index.module.css';
+import Header from '../header';
+import TaskList from '../task-list';
 
-function App() {
+const taskExamples = [
+  {
+    label: 'drink',
+    important: true,
+  },
+  {
+    label: 'eat',
+    important: false,
+  },
+  {
+    label: 'sleep',
+    important: false,
+  },
+];
+
+const App = () => {
   return (
-    <div className={ style.app }>
-      <header className={ style.header }>
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-      </header>
+    <div className="container">
+      <Header />
+      <TaskList todos={taskExamples} />
     </div>
   );
-}
+};
 
 export default App;
