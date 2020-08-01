@@ -3,26 +3,17 @@ import React from 'react';
 import Header from '../header';
 import TaskList from '../task-list';
 
-const taskExamples = [
-  {
-    label: 'drink',
-    important: true,
-  },
-  {
-    label: 'eat',
-    important: false,
-  },
-  {
-    label: 'sleep',
-    important: false,
-  },
-];
+import taskExamples from './constants';
+import FilterPanel from '../filter-panel';
+import AddItemPanel from '../add-item-panel';
 
 const App = () => {
   return (
     <div className="container">
       <Header />
+      <FilterPanel />
       <TaskList todos={taskExamples} />
+      <AddItemPanel />
     </div>
   );
 };

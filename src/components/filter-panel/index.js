@@ -1,13 +1,19 @@
 import React from 'react';
 
-import './index.css';
+import SearchForm from '../search-form';
+import FilterButtonGroup from '../filter-button-group';
 
-const Button = () => {
+import styles from './index.module.css';
+
+const { filterPanel } = styles;
+
+const FilterPanel = () => {
   return (
-    <button type="button" className="Button">
-      Okay
-    </button>
+    <div className={filterPanel}>
+      <SearchForm />
+      <FilterButtonGroup />
+    </div>
   );
 };
 
-export default Button;
+export default FilterPanel;
