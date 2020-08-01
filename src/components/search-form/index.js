@@ -1,13 +1,17 @@
 import React from 'react';
 
-import './index.css';
+import styles from './index.module.css';
 
-const Button = () => {
+const { searchForm, searchFormLabel } = styles;
+
+const SearchForm = () => {
   return (
-    <button type="button" className="Button">
-      Okay
-    </button>
+    <form className={searchForm}>
+      <label htmlFor="search" className={searchFormLabel}>
+        <input className="form-control form-control-lg" id="search" type="text" placeholder="sdfsfsdf" />
+      </label>
+    </form>
   );
 };
 
-export default Button;
+export default SearchForm;

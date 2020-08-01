@@ -1,11 +1,13 @@
 import React from 'react';
 
-import './index.css';
+import styles from './index.module.css';
+
+const { button } = styles;
 
 const Button = () => {
   return (
-    <button type="button" className="button-main">
-      Okay
+    <button type="button" className={`btn btn-primary ${button}`}>
+      Add new
     </button>
   );
 };

@@ -1,3 +1,5 @@
+/* eslint-disable react/forbid-prop-types */
+
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -16,7 +18,7 @@ const TaskList = ({ todos }) => {
 };
 
 TaskList.propTypes = {
-  todos: PropTypes.string.isRequired,
+  todos: PropTypes.array.isRequired,
 };
 
 export default TaskList;
