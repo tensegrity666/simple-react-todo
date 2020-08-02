@@ -1,11 +1,38 @@
-import React from 'react';
+/* eslint-disable react/state-in-constructor */
+
+import React, { Component } from 'react';
 
 import styles from './index.module.css';
 
 const { clock } = styles;
 
-const Clock = () => {
-  return <span className={clock}>time</span>;
+class Clock extends Component {
+  state = {
+      time: new Date().toLocaleTimeString(),
+  }
+
+  componentDidMount() {
+    this.timerID = setInterval(
+      () => this.tick(),
+      1000
+    );
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timerID);
+  }
+
+  tick() {
+    this.setState({
+      time: new Date().toLocaleTimeString(),
+    });
+  }
+
+  render() {
+    const { time } = this.state;
+
+    return <span className={clock}>{time}</span>;
+  }
 };
 
 export default Clock;
