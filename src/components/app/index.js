@@ -2,10 +2,10 @@ import React from 'react';
 
 import Header from '../header';
 import TaskList from '../task-list';
-
-import taskExamples from './constants';
 import FilterPanel from '../filter-panel';
 import AddItemPanel from '../add-item-panel';
+
+import taskExamples from './constants';
 
 const App = () => {
   return (
