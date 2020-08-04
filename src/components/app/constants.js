@@ -1,15 +1,25 @@
+import { nanoid } from 'nanoid';
+
 const taskExamples = [
   {
+    id: nanoid(),
     label: 'dronk',
-    important: true,
   },
   {
+    id: nanoid(),
     label: 'eat',
-    important: false,
   },
   {
+    id: nanoid(),
     label: 'sleep',
-    important: false,
+  },
+  {
+    id: nanoid(),
+    label: 'frink',
+  },
+  {
+    id: nanoid(),
+    label: 'shroost',
   },
 ];
 

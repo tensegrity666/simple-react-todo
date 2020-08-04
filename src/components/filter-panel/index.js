@@ -10,6 +10,7 @@ const { filterPanel } = styles;
 const FilterPanel = () => {
   return (
     <div className={filterPanel}>
+      <h3 className="visually-hidden">filter</h3>
       <SearchForm />
       <FilterButtonGroup />
     </div>

@@ -9,12 +9,12 @@ import taskExamples from './constants';
 
 const App = () => {
   return (
-    <div className="container">
+    <main className="container">
       <Header />
       <FilterPanel />
-      <TaskList todos={taskExamples} />
+      <TaskList todos={taskExamples} onDeleted={(id) => console.log(id)} />
       <AddItemPanel />
-    </div>
+    </main>
   );
 };
 
