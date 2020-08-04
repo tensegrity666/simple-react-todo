@@ -8,7 +8,7 @@ const AddItemForm = () => {
   return (
     <form className={addItemForm}>
       <label htmlFor="addItem" className={addItemLabel}>
-        <input className="form-control form-control-lg" id="addItem" type="text" placeholder="fgbndfgn" />
+        <input className="form-control form-control-lg" id="addItem" type="text" placeholder="what do we do?" />
       </label>
     </form>
   );

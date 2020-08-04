@@ -11,13 +11,13 @@ class FilterButtonGroup extends Component {
     return (
       <div className="btn-group btn-group-md" role="group" aria-label="delete or mark task">
         <button type="button" className={`btn btn-primary ${buttons}`}>
-          OK
+          All
         </button>
         <button type="button" className={`btn btn-success ${buttons}`}>
-          NOPE
+          Important
         </button>
         <button type="button" className={`btn btn-secondary ${buttons}`}>
-          MAYBE
+          Done
         </button>
       </div>
     );

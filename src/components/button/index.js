@@ -7,7 +7,7 @@ const { button } = styles;
 const Button = () => {
   return (
     <button type="button" className={`btn btn-primary ${button}`}>
-      Add new
+      Add new ToDo
     </button>
   );
 };

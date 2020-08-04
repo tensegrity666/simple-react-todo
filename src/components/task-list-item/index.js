@@ -24,6 +24,14 @@ class TaskListItem extends Component {
     });
   }
 
+  onMarkImportant = () => {
+    this.setState(({ important }) => {
+      return {
+        important: !important,
+      }
+    });
+  }
+
   render() {
     const { label, onDeleted } = this.props;
     const { important, done } = this.state;
@@ -31,11 +39,11 @@ class TaskListItem extends Component {
     return (
       <div className={item}>
         <span
-        className={done ? completedItem : important ? importantItem : defaultItem}
+        className={`${defaultItem} ${done ? completedItem : important ? importantItem : ''}`}
           onClick={this.onLabelClick} onKeyPress={this.onLabelClick} role="listitem" tabIndex="0" >
           {label}
         </span>
-        <ButtonGroup onDeleted={onDeleted}/>
+        <ButtonGroup onDeleted={onDeleted} onMarkImportant={this.onMarkImportant} />
       </div>
     );
   }

@@ -8,7 +8,7 @@ const SearchForm = () => {
   return (
     <form className={searchForm}>
       <label htmlFor="search" className={searchFormLabel}>
-        <input className="form-control form-control-lg" id="search" type="text" placeholder="sdfsfsdf" />
+        <input className="form-control form-control-lg" id="search" type="text" placeholder="search..." />
       </label>
     </form>
   );
