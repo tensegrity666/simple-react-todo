@@ -1,4 +1,30 @@
 .item {
   display: flex;
   justify-content: space-between;
+  transition: 0.3s;
+}
+
+.defaultItem {
+  color: #000000;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.defaultItem:hover {
+  color: #0f6403;
+  transition: 0.3s;
+}
+
+.importantItem {
+  font-weight: 600;
+  color: #9b0e0e;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.completedItem {
+  color: #008000;
+  text-decoration: line-through;
+  cursor: pointer;
+  transition: 0.3s;
 }
