@@ -1,30 +1,50 @@
+:root {
+  --default-text: var(--black);
+  --done: var(--red);
+  --important: var(--green);
+  --info-text: var(--dark-blue);
+  --shadow: var(--steel);
+
+  /* theme */
+  --black: #000000;
+  --red: #9b0e0e;
+  --green: #008000;
+  --dark-blue: #011f5e;
+  --steel: #2247ac46;
+
+  /* effects */
+  --transition: 0.3s;
+}
+
 .item {
   display: flex;
   justify-content: space-between;
-  transition: 0.3s;
+  transition: var(--transition);
 }
 
 .defaultItem {
-  color: #000000;
+  color: var(--default-text);
   cursor: pointer;
-  transition: 0.3s;
+  transition: var(--transition);
 }
 
-.defaultItem:hover {
-  color: #0f6403;
-  transition: 0.3s;
+.defaultItem:focus {
+  outline-width: thin;
+  outline-style: dotted;
+  outline-color: var(--steel);
 }
 
 .importantItem {
-  font-weight: 600;
-  color: #9b0e0e;
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: var(--important);
   cursor: pointer;
-  transition: 0.3s;
+  transition: var(--transition);
 }
 
 .completedItem {
-  color: #008000;
+  color: var(--done);
   text-decoration: line-through;
   cursor: pointer;
-  transition: 0.3s;
+  transition: var(--transition);
 }
