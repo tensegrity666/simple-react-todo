@@ -87,8 +87,8 @@ class App extends Component {
   render() {
     const { data } = this.state;
 
-    const doneTasks = data.filter((el) => el.done).length
-    const todoTasks = data.filter((el) => !el.done).length
+    const doneTasks = data.filter((el) => el.done).length;
+    const todoTasks = data.filter((el) => !el.done).length;
 
     return (
       <main className="container">
