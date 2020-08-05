@@ -44,44 +44,35 @@ class App extends Component {
 
   onToggleImportant = (id) => {
     this.setState(({ data }) => {
-      const index = data.findIndex((el) => el.id === id);
-
-      const oldItem = data[index];
-      const newItem = {
-        ...oldItem,
-        important: !oldItem.important,
-      };
-
-      const beforeIndex = data.slice(0, index);
-      const afterIndex = data.slice(index + 1);
-
-      const newData = [...beforeIndex, newItem, ...afterIndex];
-
       return {
-        data: newData,
+        data: this.toggleProperty(data, id, 'important'),
       }
     });
   }
 
   onToggleDone = (id) => {
     this.setState(({ data }) => {
-      const index = data.findIndex((el) => el.id === id);
-
-      const oldItem = data[index];
-      const newItem = {
-        ...oldItem,
-        done: !oldItem.done,
-      };
-
-      const beforeIndex = data.slice(0, index);
-      const afterIndex = data.slice(index + 1);
-
-      const newData = [...beforeIndex, newItem, ...afterIndex];
-
       return {
-        data: newData,
+        data: this.toggleProperty(data, id, 'done'),
       }
     });
+  }
+
+  toggleProperty(arr, id, propName) {
+    const index = arr.findIndex((el) => el.id === id);
+
+    const oldItem = arr[index];
+    const newItem = {
+      ...oldItem,
+      [propName]: !oldItem[propName],
+    };
+
+    const beforeIndex = arr.slice(0, index);
+    const afterIndex = arr.slice(index + 1);
+
+    const newData = [...beforeIndex, newItem, ...afterIndex];
+
+    return newData;
   }
 
   render() {
