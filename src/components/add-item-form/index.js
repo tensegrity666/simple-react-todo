@@ -1,17 +1,29 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import styles from './index.module.css';
 
-const { addItemForm, addItemLabel } = styles;
+const { addItemForm, addItemLabel, button, addItem } = styles;
 
-const AddItemForm = () => {
+const AddItemForm = ({ onAdd }) => {
   return (
-    <form className={addItemForm}>
+    <form className={addItem}>
       <label htmlFor="addItem" className={addItemLabel}>
-        <input className="form-control form-control-lg" id="addItem" type="text" placeholder="what do we do?" />
+        <input className={`form-control form-control-lg ${addItemForm}`} id="addItem" type="text" placeholder="what do we do?" />
       </label>
+      <button type="button" className={`btn btn-primary ${button}`} onClick={() => onAdd('text')} >
+      Add new ToDo
+      </button>
     </form>
   );
 };
+
+AddItemForm.propTypes = {
+  onAdd: PropTypes.func,
+}
+
+AddItemForm.defaultProps = {
+  onAdd: () => {},
+}
 
 export default AddItemForm;
