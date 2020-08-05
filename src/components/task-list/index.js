@@ -6,7 +6,7 @@ import TaskListItem from '../task-list-item';
 
 const TaskList = ({ todos, onDeleted, onToggleImportant, onToggleDone }) => {
   const items = todos.map((item) => {
-    const { id, label, printDate } = item;
+    const { id, label, printDate, important, done } = item;
 
     return (
       <li key={id} className="list-group-item">
@@ -16,6 +16,8 @@ const TaskList = ({ todos, onDeleted, onToggleImportant, onToggleDone }) => {
           onDeleted={()=> onDeleted(id)}
           onToggleImportant={() => onToggleImportant(id)}
           onToggleDone={() => onToggleDone(id)}
+          important={important}
+          done={done}
           />
       </li>
     );

@@ -33,7 +33,7 @@ TaskListItem.propTypes = {
   onDeleted: PropTypes.func,
   onToggleImportant: PropTypes.func,
   onToggleDone: PropTypes.func,
-  printDate: PropTypes.func,
+  printDate: PropTypes.string,
   important: PropTypes.bool,
   done: PropTypes.bool,
 };
@@ -42,7 +42,7 @@ TaskListItem.defaultProps = {
   onDeleted: () => {},
   onToggleImportant: () => {},
   onToggleDone: () => {},
-  printDate: () => {},
+  printDate: '',
   important: false,
   done: false,
 };
