@@ -9,6 +9,7 @@ const Header = () => {
     <header className={header}>
       <h1>ToDoLiSt</h1>
       <Clock />
+      <p>1 more to do, 3 done</p>
     </header>
   );
 };

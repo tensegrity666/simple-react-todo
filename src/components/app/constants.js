@@ -1,27 +1,23 @@
 import { nanoid } from 'nanoid';
 
+const createTask = (label) => {
+  return {
+    label,
+    id: nanoid(),
+    important: false,
+    done: false,
+    printDate: new Date().toLocaleDateString(),
+  }
+}
+
 const taskExamples = [
-  {
-    id: nanoid(),
-    label: 'dronk',
-  },
-  {
-    id: nanoid(),
-    label: 'eat',
-  },
-  {
-    id: nanoid(),
-    label: 'sleep',
-  },
-  {
-    id: nanoid(),
-    label: 'frink',
-  },
-  {
-    id: nanoid(),
-    label: 'shroost',
-  },
+  createTask('eat'),
+  createTask('drink'),
+  createTask('sleep'),
+  createTask('work'),
+  createTask('eat'),
+  createTask('eat'),
 ];
 
 
-export default taskExamples;
+export { taskExamples as default, createTask };

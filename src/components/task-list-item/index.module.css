@@ -48,3 +48,7 @@
   cursor: pointer;
   transition: var(--transition);
 }
+
+.dateElement {
+  color: var(--steel);
+}

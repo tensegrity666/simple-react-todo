@@ -5,13 +5,25 @@ import React, { Component } from 'react';
 import Header from '../header';
 import TaskList from '../task-list';
 import FilterPanel from '../filter-panel';
-import AddItemPanel from '../add-item-panel';
+import AddItemForm from '../add-item-form';
 
-import taskExamples from './constants';
+import taskExamples, { createTask } from './constants';
 
 class App extends Component {
   state = {
     data: taskExamples,
+  }
+
+  addTask = (text) => {
+    const newTask = createTask(text);
+
+    this.setState(({ data }) => {
+      const newData = [...data, newTask];
+
+      return {
+        data: newData,
+      }
+    });
   }
 
   deleteTask = (id) => {
@@ -29,6 +41,16 @@ class App extends Component {
     });
   }
 
+  onToggleImportant = (id) => {
+    // eslint-disable-next-line no-console
+    console.log(id)
+  }
+
+  onToggleDone = (id) => {
+    // eslint-disable-next-line no-console
+    console.log('id', id)
+  }
+
   render() {
     const { data } = this.state;
 
@@ -36,8 +58,12 @@ class App extends Component {
       <main className="container">
         <Header />
         <FilterPanel />
-        <TaskList todos={data} onDeleted={this.deleteTask} />
-        <AddItemPanel />
+        <TaskList
+          todos={data}
+          onDeleted={this.deleteTask}
+          onToggleImportant={this.onToggleImportant}
+          onToggleDone={this.onToggleDone} />
+        <AddItemForm onAdd={this.addTask} />
       </main>
     );
   }
