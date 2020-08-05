@@ -1,17 +1,24 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { header } from './index.module.css';
 
 import Clock from '../clock';
 
-const Header = () => {
+const Header = ({ todoTasks, doneTasks }) => {
   return (
     <header className={header}>
       <h1>ToDoLiSt</h1>
       <Clock />
-      <p>1 more to do, 3 done</p>
+      <p>{todoTasks} more to do, {doneTasks} done</p>
     </header>
   );
 };
+
+Header.propTypes = {
+  todoTasks: PropTypes.number.isRequired,
+  doneTasks: PropTypes.number.isRequired,
+};
+
 
 export default Header;
