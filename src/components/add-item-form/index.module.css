@@ -18,3 +18,15 @@
   justify-content: space-between;
   margin-bottom: 10rem;
 }
+
+@media (min-width: 320px) and (max-width: 500px) {
+  .addItem {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .button {
+    width: 100%;
+    margin: 1rem 0;
+  }
+}

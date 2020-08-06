@@ -1,10 +1,9 @@
-/* eslint-disable react/forbid-prop-types */
 import React from 'react';
 import PropTypes from 'prop-types';
 
 import TaskListItem from '../task-list-item';
 
-const TaskList = ({ todos, onDeleted, onToggleImportant, onToggleDone }) => {
+const TaskList = ({ todos }) => {
   const items = todos.map((item) => {
     const { id, label, printDate, important, done } = item;
 
@@ -13,12 +12,9 @@ const TaskList = ({ todos, onDeleted, onToggleImportant, onToggleDone }) => {
         <TaskListItem
           label={label}
           printDate={printDate}
-          onDeleted={()=> onDeleted(id)}
-          onToggleImportant={() => onToggleImportant(id)}
-          onToggleDone={() => onToggleDone(id)}
           important={important}
           done={done}
-          />
+          id={id} />
       </li>
     );
   });
@@ -32,16 +28,7 @@ const TaskList = ({ todos, onDeleted, onToggleImportant, onToggleDone }) => {
 };
 
 TaskList.propTypes = {
-  todos: PropTypes.array.isRequired,
-  onDeleted: PropTypes.func,
-  onToggleImportant: PropTypes.func,
-  onToggleDone: PropTypes.func,
-};
-
-TaskList.defaultProps = {
-  onDeleted: () => {},
-  onToggleImportant: () => {},
-  onToggleDone: () => {},
+  todos: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default TaskList;

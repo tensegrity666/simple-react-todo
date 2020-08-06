@@ -39,6 +39,7 @@ class AddItemForm extends Component {
     return (
       <form className={addItem} onSubmit={this.onFormSubmit} >
         <label htmlFor="addItem" className={addItemLabel}>
+          <span className="visually-hidden">add item</span>
           <input
             className={`form-control form-control-lg ${addItemForm}`}
             id="addItem"
@@ -47,7 +48,8 @@ class AddItemForm extends Component {
             placeholder="what do we do?"
             value={label} />
         </label>
-        <button type="submit" className={`btn btn-primary ${button}`} >
+
+        <button type="submit" className={`btn btn-primary btn-lg ${button}`} >
         Add new ToDo
         </button>
       </form>

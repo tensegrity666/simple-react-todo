@@ -5,14 +5,16 @@ import React, { Component } from 'react';
 
 import Header from '../header';
 import TaskList from '../task-list';
-import FilterPanel from '../filter-panel';
+import SearchForm from '../search-form';
 import AddItemForm from '../add-item-form';
+import { TaskListContext } from '../task-list-item';
 
 import taskExamples, { createTask } from './constants';
 
 class App extends Component {
   state = {
     data: taskExamples,
+    searchItem: '',
   }
 
   addTask = (text) => {
@@ -58,6 +60,10 @@ class App extends Component {
     });
   }
 
+  onSearchChange = (searchItem) => {
+    this.setState({ searchItem });
+  }
+
   toggleProperty(arr, id, propName) {
     const index = arr.findIndex((el) => el.id === id);
 
@@ -75,21 +81,36 @@ class App extends Component {
     return newData;
   }
 
+  search(items, serchingItem) {
+    if (!serchingItem || serchingItem.length === 0) {
+      return items;
+    }
+
+    return items.filter((item) => item.label
+      .toLowerCase()
+      .indexOf(serchingItem.trimLeft().toLowerCase()) > -1);
+  }
+
   render() {
-    const { data } = this.state;
+    const { data, searchItem } = this.state;
 
     const doneTasks = data.filter((el) => el.done).length;
     const todoTasks = data.filter((el) => !el.done).length;
 
+    const visibleItems = this.search(data, searchItem);
+
     return (
       <main className="container">
         <Header todoTasks={todoTasks} doneTasks={doneTasks} />
-        <FilterPanel />
-        <TaskList
-          todos={data}
-          onDeleted={this.deleteTask}
-          onToggleImportant={this.onToggleImportant}
-          onToggleDone={this.onToggleDone} />
+        <SearchForm onSearchChange={this.onSearchChange} />
+        <TaskListContext.Provider value={{
+          onToggleImportant: this.onToggleImportant,
+          onDeleted: this.deleteTask,
+          onToggleDone: this.onToggleDone,
+          }}>
+          <TaskList
+            todos={visibleItems} />
+        </TaskListContext.Provider>
         <AddItemForm onAdd={this.addTask} />
       </main>
     );
