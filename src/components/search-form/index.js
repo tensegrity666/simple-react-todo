@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import buttonsData from './constants';
 import styles from './index.module.css';
 
 const { searchForm, searchFormLabel, buttonsGroup, buttons } = styles;
@@ -14,6 +15,7 @@ class SearchForm extends Component {
 
   onSearchChange = (event) => {
     const { onSearchChange } = this.props;
+
     const searchItem = event.target.value;
 
     this.setState({ searchItem });
@@ -22,6 +24,22 @@ class SearchForm extends Component {
 
   render() {
     const { searchItem } = this.state;
+    const { filter, onFilterChange } = this.props;
+
+    const newButtons = buttonsData.map(({ name, label, id }) => {
+      const isActive = (name === filter);
+      const buttonClassName = isActive ? 'btn-primary' : 'btn-outline-secondary';
+
+      return (
+        <button 
+          key={id} 
+          type="button" 
+          className={`btn btn-lg ${buttonClassName} ${buttons}`}
+          onClick={() => onFilterChange(name)}>
+            {label}
+        </button>
+      );
+    });
 
     return (
       <form className={searchForm}>
@@ -37,15 +55,7 @@ class SearchForm extends Component {
         </label>
 
         <div className={`btn-group btn-group-lg ${buttonsGroup}`} role="group" aria-label="filter tasks">
-          <button type="button" className={`btn btn-primary btn-lg ${buttons}`}>
-            All
-          </button>
-          <button type="button" className={`btn btn-success btn-lg ${buttons}`}>
-            Important
-          </button>
-          <button type="button" className={`btn btn-secondary btn-lg ${buttons}`}>
-            Done
-          </button>
+          {newButtons}
         </div>
       </form>
     );
@@ -54,10 +64,14 @@ class SearchForm extends Component {
 
 SearchForm.propTypes = {
   onSearchChange: PropTypes.func,
+  onFilterChange: PropTypes.func,
+  filter: PropTypes.string,
 }
 
 SearchForm.defaultProps = {
   onSearchChange: () => {},
+  onFilterChange: () => {},
+  filter: '',
 }
 
 export default SearchForm;

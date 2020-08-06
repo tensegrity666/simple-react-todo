@@ -11,13 +11,7 @@ const createTask = (label) => {
 }
 
 const taskExamples = [
-  createTask('eat'),
-  createTask('drink'),
-  createTask('sleep'),
-  createTask('work'),
-  createTask('eat'),
-  createTask('eat'),
+  createTask('Need to remember to add a new task...'),
 ];
-
 
 export { taskExamples as default, createTask };
