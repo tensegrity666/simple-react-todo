@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 1.1.0 (2020-08-06)
+
+### Features
+
+- add all components ([8fd1a58](https://github.com/tensegrity666/simple-react-todo/commit/8fd1a58bf427726d7bf37db9451cba64ec8e89e0))
+- add interactions with list items ([17416db](https://github.com/tensegrity666/simple-react-todo/commit/17416db5f48765b8856cdcb0346d64183a1b5343))
+- add layout ([77a6791](https://github.com/tensegrity666/simple-react-todo/commit/77a67917ceea49ad030d9cbfe7d53a0f5aa139e0))
+- add nanoid ([524c146](https://github.com/tensegrity666/simple-react-todo/commit/524c146ed4a10bda5c40a69f46816d2ef0e1a403))
+- edit readme ([e7f74d6](https://github.com/tensegrity666/simple-react-todo/commit/e7f74d6ebb9a8ac71d5f80f531285c2fea64beb4))
+- implement filter and saving to localStorage ([8a7549e](https://github.com/tensegrity666/simple-react-todo/commit/8a7549e62052263685d572cc99ca4ecef65be7a5))
+- implement clock ([38ba98b](https://github.com/tensegrity666/simple-react-todo/commit/38ba98b243b0c5d6eacea3a05f8bb9c7cb2bde69))
+- implement counter ([d729c9f](https://github.com/tensegrity666/simple-react-todo/commit/d729c9ffe3fd419a33b0d7819e5529fd32e4b3c1))
+- implement item adding ([d4c3578](https://github.com/tensegrity666/simple-react-todo/commit/d4c35789068dc151989a25d5ddc5c23ac054f26c))
+- implement item adding ([799beb2](https://github.com/tensegrity666/simple-react-todo/commit/799beb2d9f3e3520814450d0a5088e5ffed7502c))
+- implement item deleting ([5683f33](https://github.com/tensegrity666/simple-react-todo/commit/5683f334a0eb5c1077652f10de09ecd388918880))
+- implement search ([b4b989d](https://github.com/tensegrity666/simple-react-todo/commit/b4b989db02b5ec2815924f1e24aa3ff642c32309))
+- install standard-version ([9cc1c16](https://github.com/tensegrity666/simple-react-todo/commit/9cc1c16820181c31574ce35b047b1d4c29070b5b))
+- setup env ([6b8dc8d](https://github.com/tensegrity666/simple-react-todo/commit/6b8dc8dd8007721eddda12c18769c1ba5a3f7546))
+
 ## [1.0.0](https://github.com/tensegrity666/simple-react-todo/compare/v0.1.1...v1.0.0) (2020-08-05)
 
 ### Features
