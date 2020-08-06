@@ -12,9 +12,24 @@ import { TaskListContext } from '../task-list-item';
 import taskExamples, { createTask } from './constants';
 
 class App extends Component {
-  state = {
-    data: taskExamples,
-    searchItem: '',
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      data: taskExamples,
+      searchItem: '',
+      filter: '',
+    }
+
+    this.saveToLocalStorage();
+  }
+
+  componentDidMount() {
+    this.setState(JSON.parse(localStorage.currentState));
+  }
+
+  componentWillUnmount() {
+    localStorage.currentState = JSON.stringify(this.state);
   }
 
   addTask = (text) => {
@@ -64,6 +79,10 @@ class App extends Component {
     this.setState({ searchItem });
   }
 
+  onFilterChange = (filter) => {
+    this.setState({ filter });
+  }
+
   toggleProperty(arr, id, propName) {
     const index = arr.findIndex((el) => el.id === id);
 
@@ -91,25 +110,47 @@ class App extends Component {
       .indexOf(serchingItem.trimLeft().toLowerCase()) > -1);
   }
 
+  filter(items, filter) {
+    switch(filter) {
+      case 'active':
+        return items.filter((item) => !item.done);
+      case 'done':
+        return items.filter((item) => item.done);
+      case 'all':
+        return items;
+      default:
+        return items;
+    }
+  }
+
+  saveToLocalStorage() {
+    window.addEventListener('unload', () => {
+      localStorage.currentState = JSON.stringify(this.state);
+    });
+  }
+
   render() {
-    const { data, searchItem } = this.state;
+    const { data, searchItem, filter } = this.state;
 
     const doneTasks = data.filter((el) => el.done).length;
     const todoTasks = data.filter((el) => !el.done).length;
 
-    const visibleItems = this.search(data, searchItem);
+    const visible = (this.search(data, searchItem));
+    const filtered = this.filter(visible, filter);
 
     return (
       <main className="container">
         <Header todoTasks={todoTasks} doneTasks={doneTasks} />
-        <SearchForm onSearchChange={this.onSearchChange} />
+        <SearchForm
+          filter={filter}
+          onSearchChange={this.onSearchChange}
+          onFilterChange={this.onFilterChange} />
         <TaskListContext.Provider value={{
           onToggleImportant: this.onToggleImportant,
           onDeleted: this.deleteTask,
           onToggleDone: this.onToggleDone,
           }}>
-          <TaskList
-            todos={visibleItems} />
+          <TaskList todos={filtered} />
         </TaskListContext.Provider>
         <AddItemForm onAdd={this.addTask} />
       </main>
