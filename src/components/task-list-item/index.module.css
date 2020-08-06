@@ -22,7 +22,7 @@
   transition: var(--transition);
 }
 
-.defaultItem {
+.defaultItemStyle {
   font-size: 1.2rem;
   font-weight: 400;
   color: var(--default-text);
@@ -30,13 +30,13 @@
   transition: var(--transition);
 }
 
-.defaultItem:focus {
+.defaultItemStyle:focus {
   outline-width: thin;
   outline-style: dotted;
   outline-color: var(--steel);
 }
 
-.importantItem {
+.importantItemStyle {
   font-size: 1.4rem;
   font-weight: 900;
   color: var(--important);
@@ -44,7 +44,7 @@
   transition: var(--transition);
 }
 
-.completedItem {
+.completedItemStyle {
   color: var(--done);
   text-decoration: line-through;
   cursor: pointer;

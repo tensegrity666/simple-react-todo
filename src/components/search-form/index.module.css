@@ -1,7 +1,29 @@
 .searchForm {
-  width: 80%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .searchFormLabel {
-  width: 100%;
+  width: 75%;
+}
+
+.buttons {
+  height: 3rem;
+}
+
+@media (min-width: 320px) and (max-width: 500px) {
+  .buttonsGroup {
+    margin-bottom: 2rem;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 500px) {
+  .searchForm {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .searchFormLabel {
+    width: 100%;
+  }
 }

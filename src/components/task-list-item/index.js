@@ -5,46 +5,52 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { item, importantItem, completedItem, defaultItem, dateElement } from './index.module.css';
+import { item, importantItemStyle, completedItemStyle, defaultItemStyle, dateElement } from './index.module.css';
 
 import ButtonGroup from '../button-group';
 
-const TaskListItem = ({ label, printDate, onDeleted, onToggleImportant, onToggleDone, important, done }) => {
+const TaskListContext = React.createContext();
+
+const TaskListItem = ({ label, printDate, important, done, id }) => {
     return (
-      <div className={item}>
-        <span
-          className={`${defaultItem} ${done ? completedItem : important ? importantItem : ''}`}
-          role="listitem"
-          tabIndex="0"
-          onClick={onToggleDone}
-          onKeyPress={onToggleDone}>
-          {label}
-        </span>
-        <span className={dateElement}>{printDate}</span>
-        <ButtonGroup
-          onDeleted={onDeleted}
-          onToggleImportant={onToggleImportant} />
-      </div>
+      <TaskListContext.Consumer>
+        {({ onToggleImportant, onToggleDone, onDeleted }) => {
+          return (
+            <div className={item}>
+              <span
+                className={`${defaultItemStyle} ${done ? completedItemStyle : important ? importantItemStyle : ''}`}
+                role="listitem"
+                tabIndex="0"
+                onClick={() => onToggleDone(id)}
+                onKeyPress={() => onToggleDone(id)} >
+                {label}
+              </span>
+              <span className={dateElement}>
+                {printDate}
+              </span>
+              <ButtonGroup
+                onDeleted={()=> onDeleted(id)}
+                onToggleImportant={() => onToggleImportant(id)} />
+            </div>
+          );
+        }}
+      </TaskListContext.Consumer>
     );
 }
 
 TaskListItem.propTypes = {
   label: PropTypes.string.isRequired,
-  onDeleted: PropTypes.func,
-  onToggleImportant: PropTypes.func,
-  onToggleDone: PropTypes.func,
   printDate: PropTypes.string,
   important: PropTypes.bool,
   done: PropTypes.bool,
+  id: PropTypes.string,
 };
 
 TaskListItem.defaultProps = {
-  onDeleted: () => {},
-  onToggleImportant: () => {},
-  onToggleDone: () => {},
   printDate: '',
   important: false,
   done: false,
+  id: '',
 };
 
-export default TaskListItem;
+export { TaskListItem as default, TaskListContext};
