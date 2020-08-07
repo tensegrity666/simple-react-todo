@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/tensegrity666/simple-react-todo/compare/v1.2.0...v1.3.0) (2020-08-07)
+
+### Features
+
+- add favicons ([c70fab9](https://github.com/tensegrity666/simple-react-todo/commit/c70fab9e7e2fda375bf40077500578c59636974b))
+
 ## [1.2.0](https://github.com/tensegrity666/simple-react-todo/compare/v1.1.0...v1.2.0) (2020-08-07)
 
 ### Features
