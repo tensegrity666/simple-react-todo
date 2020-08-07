@@ -6,6 +6,7 @@
 - __responsive design__
 - __fully accessible from the keyboard__
 - __when the application is closed, tasks are saved to local storage and remain available when the page is reloaded__
+- __PWA__
 
 ### [Changelog](https://github.com/tensegrity666/simple-react-todo/blob/master/CHANGELOG.md)
 
