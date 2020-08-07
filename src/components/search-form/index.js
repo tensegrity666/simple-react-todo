@@ -68,9 +68,8 @@ class SearchForm extends Component {
           type="button"
           className={`btn btn-outline-danger ${buttons}`}
           onClick={this.onFormClear}>
-            <i className="fa fa-times" aria-hidden="true">
-              <span className="visually-hidden">clear</span>
-            </i>
+            <span className="visually-hidden">clear</span>
+            <i className="fa fa-times" aria-hidden="true" />
         </button>
 
         <div
