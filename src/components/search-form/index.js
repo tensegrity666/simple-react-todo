@@ -57,6 +57,12 @@ class SearchForm extends Component {
           />
         </label>
 
+        <button type="button" className={`btn btn-outline-danger ${buttons}`}>
+          <i className="fa fa-times" aria-hidden="true">
+            <span className="visually-hidden">clear</span>
+          </i>
+        </button>
+
         <div
           className={`btn-group btn-group-lg ${buttonsGroup}`}
           role="group"

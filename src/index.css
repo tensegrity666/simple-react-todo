@@ -37,13 +37,3 @@ body::-webkit-scrollbar-thumb {
   outline: 1px solid #ffc107;
   box-shadow: inset 0 0 10px #000000;
 }
-
-code {
-  font-family:
-    source-code-pro,
-    Menlo,
-    Monaco,
-    Consolas,
-    'Courier New',
-    monospace;
-}

@@ -51,7 +51,7 @@ class AddItemForm extends Component {
         </label>
 
         <button type="submit" className={`btn btn-primary btn-lg ${button}`}>
-          Add new ToDo
+          Add new
         </button>
       </form>
     );

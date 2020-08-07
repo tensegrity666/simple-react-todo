@@ -24,9 +24,11 @@
 }
 
 .defaultItemStyle {
+  width: 65%;
   font-size: 1.2rem;
   font-weight: 400;
   color: var(--default-text);
+  word-wrap: break-word;
   cursor: pointer;
   transition: var(--transition);
 }
@@ -53,5 +55,6 @@
 }
 
 .dateElement {
+  font-size: 1rem;
   color: var(--steel);
 }

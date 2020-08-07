@@ -29,10 +29,6 @@ class App extends Component {
     this.saveToLocalStorage();
   }
 
-  // componentWillUnmount() {
-  //   localStorage.currentState = JSON.stringify(this.state);
-  // }
-
   addTask = (text) => {
     const newTask = createTask(text);
 
