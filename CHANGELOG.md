@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.3.1](https://github.com/tensegrity666/simple-react-todo/compare/v1.3.0...v1.3.1) (2020-08-07)
+
+### Bug Fixes
+
+- paddings and text wrap ([a9d551e](https://github.com/tensegrity666/simple-react-todo/commit/a9d551e8c91f907fd7a0ec90f3a67a676cf4035e))
+- search reset ([0f487bf](https://github.com/tensegrity666/simple-react-todo/commit/0f487bf99fbbef286eb69aa52fde29bbf89c5df2))
+
 ## [1.3.0](https://github.com/tensegrity666/simple-react-todo/compare/v1.2.0...v1.3.0) (2020-08-07)
 
 ### Features
