@@ -1,2 +1,2 @@
-# https://react-todo-8b0b3.web.app/robotstxt.html
+# https://simplereactodo.netlify.app/robotstxt.html
 User-agent: *

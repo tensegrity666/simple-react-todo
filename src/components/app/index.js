@@ -17,15 +17,21 @@ class App extends Component {
     data: taskExamples,
     searchItem: '',
     filter: 'all',
-  };
+  }
 
   constructor(props) {
     super(props);
 
-    this.state = JSON.parse(localStorage.currentState) || this._initialState;
+    this.state = JSON.parse(localStorage.getItem('currentState')) || this._initialState;
+  }
 
+  componentDidMount() {
     this.saveToLocalStorage();
   }
+
+  // componentWillUnmount() {
+  //   localStorage.currentState = JSON.stringify(this.state);
+  // }
 
   addTask = (text) => {
     const newTask = createTask(text);
@@ -35,9 +41,9 @@ class App extends Component {
 
       return {
         data: newData,
-      };
+      }
     });
-  };
+  }
 
   deleteTask = (id) => {
     this.setState(({ data }) => {
@@ -50,33 +56,33 @@ class App extends Component {
 
       return {
         data: newData,
-      };
+      }
     });
-  };
+  }
 
   onToggleImportant = (id) => {
     this.setState(({ data }) => {
       return {
         data: this.toggleProperty(data, id, 'important'),
-      };
+      }
     });
-  };
+  }
 
   onToggleDone = (id) => {
     this.setState(({ data }) => {
       return {
         data: this.toggleProperty(data, id, 'done'),
-      };
+      }
     });
-  };
+  }
 
   onSearchChange = (searchItem) => {
     this.setState({ searchItem });
-  };
+  }
 
   onFilterChange = (filter) => {
     this.setState({ filter });
-  };
+  }
 
   toggleProperty(arr, id, propName) {
     const index = arr.findIndex((el) => el.id === id);
@@ -100,16 +106,13 @@ class App extends Component {
       return items;
     }
 
-    return items.filter(
-      (item) =>
-        item.label
-          .toLowerCase()
-          .indexOf(serchingItem.trimLeft().toLowerCase()) > -1
-    );
+    return items.filter((item) => item.label
+      .toLowerCase()
+      .indexOf(serchingItem.trimLeft().toLowerCase()) > -1);
   }
 
   filter(items, filter) {
-    switch (filter) {
+    switch(filter) {
       case 'active':
         return items.filter((item) => !item.done);
       case 'done':
@@ -123,7 +126,7 @@ class App extends Component {
 
   saveToLocalStorage() {
     window.addEventListener('unload', () => {
-      localStorage.currentState = JSON.stringify(this.state);
+      localStorage.setItem('currentState', JSON.stringify(this.state));
     });
   }
 
@@ -133,7 +136,7 @@ class App extends Component {
     const doneTasks = data.filter((el) => el.done).length;
     const todoTasks = data.filter((el) => !el.done).length;
 
-    const visible = this.search(data, searchItem);
+    const visible = (this.search(data, searchItem));
     const filtered = this.filter(visible, filter);
 
     return (
@@ -142,13 +145,11 @@ class App extends Component {
         <SearchForm
           filter={filter}
           onSearchChange={this.onSearchChange}
-          onFilterChange={this.onFilterChange}
-        />
-        <TaskListContext.Provider
-          value={{
-            onToggleImportant: this.onToggleImportant,
-            onDeleted: this.deleteTask,
-            onToggleDone: this.onToggleDone,
+          onFilterChange={this.onFilterChange} />
+        <TaskListContext.Provider value={{
+          onToggleImportant: this.onToggleImportant,
+          onDeleted: this.deleteTask,
+          onToggleDone: this.onToggleDone,
           }}>
           <TaskList todos={filtered} />
         </TaskListContext.Provider>
@@ -156,6 +157,6 @@ class App extends Component {
       </main>
     );
   }
-}
+};
 
 export default App;
