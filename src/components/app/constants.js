@@ -7,11 +7,9 @@ const createTask = (label) => {
     important: false,
     done: false,
     printDate: new Date().toLocaleDateString(),
-  }
-}
+  };
+};
 
-const taskExamples = [
-  createTask('Need to remember to add a new task...'),
-];
+const taskExamples = [createTask('Need to remember to add a new task...')];
 
 export { taskExamples as default, createTask };

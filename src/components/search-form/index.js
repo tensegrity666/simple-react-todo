@@ -11,7 +11,7 @@ const { searchForm, searchFormLabel, buttonsGroup, buttons } = styles;
 class SearchForm extends Component {
   state = {
     searchItem: '',
-  }
+  };
 
   onSearchChange = (event) => {
     const { onSearchChange } = this.props;
@@ -20,23 +20,25 @@ class SearchForm extends Component {
 
     this.setState({ searchItem });
     onSearchChange(searchItem);
-  }
+  };
 
   render() {
     const { searchItem } = this.state;
     const { filter, onFilterChange } = this.props;
 
     const newButtons = buttonsData.map(({ name, label, id }) => {
-      const isActive = (name === filter);
-      const buttonClassName = isActive ? 'btn-primary' : 'btn-outline-secondary';
+      const isActive = name === filter;
+      const buttonClassName = isActive
+        ? 'btn-primary'
+        : 'btn-outline-secondary';
 
       return (
-        <button 
-          key={id} 
-          type="button" 
+        <button
+          key={id}
+          type="button"
           className={`btn btn-lg ${buttonClassName} ${buttons}`}
           onClick={() => onFilterChange(name)}>
-            {label}
+          {label}
         </button>
       );
     });
@@ -51,27 +53,31 @@ class SearchForm extends Component {
             type="text"
             placeholder="search..."
             onChange={this.onSearchChange}
-            value={searchItem} />
+            value={searchItem}
+          />
         </label>
 
-        <div className={`btn-group btn-group-lg ${buttonsGroup}`} role="group" aria-label="filter tasks">
+        <div
+          className={`btn-group btn-group-lg ${buttonsGroup}`}
+          role="group"
+          aria-label="filter tasks">
           {newButtons}
         </div>
       </form>
     );
   }
-};
+}
 
 SearchForm.propTypes = {
   onSearchChange: PropTypes.func,
   onFilterChange: PropTypes.func,
   filter: PropTypes.string,
-}
+};
 
 SearchForm.defaultProps = {
   onSearchChange: () => {},
   onFilterChange: () => {},
   filter: '',
-}
+};
 
 export default SearchForm;

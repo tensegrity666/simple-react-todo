@@ -5,38 +5,45 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { item, importantItemStyle, completedItemStyle, defaultItemStyle, dateElement } from './index.module.css';
+import {
+  item,
+  importantItemStyle,
+  completedItemStyle,
+  defaultItemStyle,
+  dateElement,
+} from './index.module.css';
 
 import ButtonGroup from '../button-group';
 
 const TaskListContext = React.createContext();
 
 const TaskListItem = ({ label, printDate, important, done, id }) => {
-    return (
-      <TaskListContext.Consumer>
-        {({ onToggleImportant, onToggleDone, onDeleted }) => {
-          return (
-            <div className={item}>
-              <span
-                className={`${defaultItemStyle} ${done ? completedItemStyle : important ? importantItemStyle : ''}`}
-                role="listitem"
-                tabIndex="0"
-                onClick={() => onToggleDone(id)}
-                onKeyPress={() => onToggleDone(id)} >
-                {label}
-              </span>
-              <span className={dateElement}>
-                {printDate}
-              </span>
-              <ButtonGroup
-                onDeleted={()=> onDeleted(id)}
-                onToggleImportant={() => onToggleImportant(id)} />
-            </div>
-          );
-        }}
-      </TaskListContext.Consumer>
-    );
-}
+  return (
+    <TaskListContext.Consumer>
+      {({ onToggleImportant, onToggleDone, onDeleted }) => {
+        return (
+          <div className={item}>
+            <span
+              className={`${defaultItemStyle} ${
+                done ? completedItemStyle : important ? importantItemStyle : ''
+              }`}
+              role="listitem"
+              tabIndex="0"
+              onClick={() => onToggleDone(id)}
+              onKeyPress={() => onToggleDone(id)}>
+              {label}
+            </span>
+            <span className={dateElement}>{printDate}</span>
+            <ButtonGroup
+              onDeleted={() => onDeleted(id)}
+              onToggleImportant={() => onToggleImportant(id)}
+            />
+          </div>
+        );
+      }}
+    </TaskListContext.Consumer>
+  );
+};
 
 TaskListItem.propTypes = {
   label: PropTypes.string.isRequired,
@@ -53,4 +60,4 @@ TaskListItem.defaultProps = {
   id: '',
 };
 
-export { TaskListItem as default, TaskListContext};
+export { TaskListItem as default, TaskListContext };

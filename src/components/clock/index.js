@@ -8,14 +8,11 @@ const { clock } = styles;
 
 class Clock extends Component {
   state = {
-      time: new Date().toLocaleTimeString(),
-  }
+    time: new Date().toLocaleTimeString(),
+  };
 
   componentDidMount() {
-    this.timerID = setInterval(
-      () => this.tick(),
-      1000
-    );
+    this.timerID = setInterval(() => this.tick(), 1000);
   }
 
   componentWillUnmount() {
@@ -33,6 +30,6 @@ class Clock extends Component {
 
     return <h2 className={clock}>{time}</h2>;
   }
-};
+}
 
 export default Clock;

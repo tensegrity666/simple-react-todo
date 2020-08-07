@@ -14,7 +14,8 @@ const TaskList = ({ todos }) => {
           printDate={printDate}
           important={important}
           done={done}
-          id={id} />
+          id={id}
+        />
       </li>
     );
   });
