@@ -1,4 +1,5 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/f128fc2d-7a81-4901-99ab-1ee7c3d80b37/deploy-status)](https://app.netlify.com/sites/simplereactodo/deploys)
+![W3C Validation](https://img.shields.io/w3c-validation/html?style=plastic&targetUrl=https%3A%2F%2Fsimplereactodo.netlify.app%2F)
+
 ### https://simplereactodo.netlify.app/
 
 - __application has full functionality, even on mobile devices__
