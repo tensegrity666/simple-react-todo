@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/tensegrity666/simple-react-todo/compare/v1.1.0...v1.2.0) (2020-08-07)
+
+### Features
+
+- add eslint-plugin-import ([2b19d97](https://github.com/tensegrity666/simple-react-todo/commit/2b19d9741cc1c6be61b12cf90a21ecc7c966608a))
+- enable service worker ([8bf45f1](https://github.com/tensegrity666/simple-react-todo/commit/8bf45f1adb6e330cb80f92dc3a43c1820a276801))
+
+### Bug Fixes
+
+- problem with first loading and font size ([e760d61](https://github.com/tensegrity666/simple-react-todo/commit/e760d619dbc944da9efbbf95a3c6b96480677695))
+
 ## 1.1.0 (2020-08-06)
 
 ### Features
