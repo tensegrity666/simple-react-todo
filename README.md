@@ -4,6 +4,7 @@
 
 - __application has full functionality, even on mobile devices__
 - __responsive design__
+- __paid a lot of attention to UX__
 - __fully accessible from the keyboard__
 - __when the application is closed, tasks are saved to local storage and remain available when the page is reloaded__
 - __PWA__
