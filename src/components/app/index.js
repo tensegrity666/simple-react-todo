@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable class-methods-use-this */
 /* eslint-disable react/state-in-constructor */
 
@@ -12,24 +13,18 @@ import { TaskListContext } from '../task-list-item';
 import taskExamples, { createTask } from './constants';
 
 class App extends Component {
+  _initialState = {
+    data: taskExamples,
+    searchItem: '',
+    filter: 'all',
+  }
+
   constructor(props) {
     super(props);
 
-    this.state = {
-      data: taskExamples,
-      searchItem: '',
-      filter: '',
-    }
+    this.state = JSON.parse(localStorage.currentState) || this._initialState;
 
     this.saveToLocalStorage();
-  }
-
-  componentDidMount() {
-    this.setState(JSON.parse(localStorage.currentState));
-  }
-
-  componentWillUnmount() {
-    localStorage.currentState = JSON.stringify(this.state);
   }
 
   addTask = (text) => {

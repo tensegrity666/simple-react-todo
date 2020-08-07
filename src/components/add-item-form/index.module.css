@@ -11,6 +11,8 @@
   width: 20%;
   height: 3rem;
   margin: 2rem 0 0 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
 }
 
 .addItem {
@@ -28,5 +30,6 @@
   .button {
     width: 100%;
     margin: 1rem 0;
+    font-size: 1.1rem;
   }
 }
